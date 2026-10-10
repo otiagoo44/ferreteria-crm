@@ -1,0 +1,13 @@
+node_modules/
+.tools/
+dist/
+.env
+.env.*
+!.env.example
+!.env.demo
+playwright-report/
+test-results/
+*.tsbuildinfo
+supabase/.temp/
+__pycache__/
+*.py[cod]

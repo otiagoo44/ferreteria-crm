@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:ferreteria-occidental:intake:v1",
+  "title": "Public intake v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "submission_id", "name", "phone", "message", "items", "contact_consent", "consent_version"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "submission_id": { "type": "string", "format": "uuid" },
+    "name": { "type": "string", "minLength": 2, "maxLength": 100, "pattern": "^\\S(?:[\\s\\S]*\\S)$" },
+    "phone": { "type": "string", "pattern": "^\\+[1-9][0-9]{7,14}$" },
+    "message": { "type": "string", "maxLength": 2000 },
+    "items": {
+      "type": "array", "maxItems": 50,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["description", "quantity", "unit"],
+        "properties": {
+          "product_ref": { "type": "string", "minLength": 1, "maxLength": 100, "pattern": "^\\S(?:[\\s\\S]*\\S)?$" },
+          "description": { "type": "string", "minLength": 2, "maxLength": 300, "pattern": "^\\S(?:[\\s\\S]*\\S)$" },
+          "quantity": { "type": "number", "exclusiveMinimum": 0, "maximum": 1000000 },
+          "unit": { "enum": ["unidad", "bolsa", "kg", "m", "m2", "m3", "l", "por_confirmar"] }
+        },
+        "allOf": [{ "if": { "properties": { "unit": { "enum": ["unidad", "bolsa"] } } }, "then": { "properties": { "quantity": { "type": "integer" } } } }]
+      }
+    },
+    "fulfilment_preference": { "enum": ["pickup", "delivery", "unsure"] },
+    "contact_consent": { "const": true },
+    "consent_version": { "type": "string", "minLength": 1, "maxLength": 50, "pattern": "^\\S(?:[\\s\\S]*\\S)?$" },
+    "attribution": { "type": "object", "additionalProperties": false, "properties": { "source": { "type": "string", "maxLength": 200 }, "campaign": { "type": "string", "maxLength": 200 } } }
+  },
+  "anyOf": [
+    { "properties": { "message": { "minLength": 8, "pattern": "^\\S(?:[\\s\\S]*\\S)$" } } },
+    { "properties": { "items": { "minItems": 1 } } }
+  ]
+}

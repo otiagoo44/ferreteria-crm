@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "submission_id": "d94fd935-8c32-4ef0-9caf-b2fd0f10f027",
+  "name": "Contacto de prueba",
+  "phone": "+12025550123",
+  "message": "Solicito presupuesto de estos materiales.",
+  "items": [{"product_ref": "DEMO-CEMENTO", "description": "Cemento de muestra", "quantity": 2, "unit": "bolsa"}],
+  "fulfilment_preference": "unsure",
+  "contact_consent": true,
+  "consent_version": "contact-v1-draft",
+  "attribution": {"source": "test"}
+}

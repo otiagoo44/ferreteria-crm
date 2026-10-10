@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Public intake v1 receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "reference", "received_at"],
+  "properties": {
+    "status": { "const": "received" },
+    "reference": { "type": "string", "pattern": "^[A-Za-z0-9_-]{4,100}$" },
+    "received_at": { "type": "string", "format": "date-time" }
+  }
+}

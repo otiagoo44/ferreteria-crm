@@ -1,0 +1,19 @@
+/* Authority: DESIGN.md. Semantic tokens used by the interface. */
+:root {
+  --colors-primary: #3e4095;
+  --colors-primary-hover: #303273;
+  --colors-ink: #292a35;
+  --colors-muted: #696a78;
+  --colors-canvas: #ffffff;
+  --colors-surface: #fafafb;
+  --colors-sidebar: #f8f8fa;
+  --colors-soft: #efeff8;
+  --colors-border: #e8e8ed;
+  --colors-control-border: #898b98;
+  --colors-error: #ac3942;
+  --colors-error-soft: #fff0f1;
+  --colors-warning: #855b17;
+  --colors-warning-soft: #fbf3df;
+  --colors-success: #347052;
+  --colors-success-soft: #eaf5ee;
+}

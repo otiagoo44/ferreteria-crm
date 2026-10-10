@@ -1,0 +1,17 @@
+project_id = "occidental-crm-local"
+[api]
+enabled = true
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+[db]
+major_version = 17
+[auth]
+enabled = true
+site_url = "http://127.0.0.1:5173"
+additional_redirect_urls = ["http://127.0.0.1:5173"]
+enable_signup = false
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+[functions.public-intake]
+verify_jwt = false
